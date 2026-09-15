@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Simple-Dark---Ethan-Maurer",
+      "reportVersionAtImport": {
+        "visual": "1.8.39",
+        "report": "2.0.39",
+        "page": "1.3.39"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Simple-Dark---Ethan-Maurer.json",
+      "reportVersionAtImport": {
+        "visual": "1.8.40",
+        "report": "2.0.40",
+        "page": "1.3.40"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Simple-Dark---Ethan-Maurer",
+          "path": "BaseThemes/Simple-Dark---Ethan-Maurer.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Simple-Dark---Ethan-Maurer.json",
+          "path": "Simple-Dark---Ethan-Maurer.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "Dark-Mode51164529134956617.png",
+          "path": "Dark-Mode51164529134956617.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dark-Mode-130527444745884099.png",
+          "path": "Dark-Mode-130527444745884099.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dark-Mode-278510862013395740.png",
+          "path": "Dark-Mode-278510862013395740.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dark-Mode-483949529938183884.png",
+          "path": "Dark-Mode-483949529938183884.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dark-Mode-521096011369443146.png",
+          "path": "Dark-Mode-521096011369443146.png",
+          "type": "Image"
+        },
+        {
+          "name": "Captura_de_tela_2026-05-14_2233203724274552773.png",
+          "path": "Captura_de_tela_2026-05-14_2233203724274552773.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "defaultFilterActionIsDataFilter": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

@@ -1,0 +1,107 @@
+table Worksheet
+	lineageTag: ff986566-3e14-42c3-bd87-77a240a81f88
+
+	measure Total_Clientes = DISTINCTCOUNT(Worksheet[id_client])
+		formatString: 0
+		lineageTag: da23e45d-992d-4f43-aa2a-bb13c251a54f
+
+	measure Total_Transacoes = COUNT('Worksheet'[id_client])
+		formatString: 0
+		lineageTag: 97b4618e-a631-47b9-80aa-404ffcef0cfa
+
+	measure Total_Vendas = SUM('Worksheet'[Price])
+		lineageTag: cfa8d846-b270-4eaf-b42f-42a23caa8147
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Ticket_Medio = DIVIDE([Total_Vendas], [Total_Transacoes])
+		lineageTag: d427a1e4-5cff-47bd-a14c-2ee0fe484c34
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column id_client
+		dataType: int64
+		formatString: 0
+		lineageTag: 54bc5eec-e48e-4742-aa8f-3838f3a7d71a
+		summarizeBy: sum
+		sourceColumn: id_client
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 607d9eab-a5fe-4b13-8ee6-9247f9075cfa
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		lineageTag: da76715a-c080-43f7-a481-ffa3c9d983ec
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Card Type'
+		dataType: string
+		lineageTag: efcf72ce-67fa-4473-a599-70220d896b52
+		summarizeBy: none
+		sourceColumn: Card Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 1d54d63c-50c0-4ef9-af03-7cb2c7dc9f9c
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column First_name
+		dataType: string
+		lineageTag: 8ab2ed02-0bad-4e1f-87c3-e62a00eab056
+		summarizeBy: none
+		sourceColumn: First_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: e717732f-3d69-4455-afcd-da97fc737d2a
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job_Title
+		dataType: string
+		lineageTag: 36317a99-cfff-408f-89f3-1a2a63b6e4ab
+		summarizeBy: none
+		sourceColumn: Job_Title
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Worksheet = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("G:\python\Ciencia_Analise_Dados\15\dados_ecommerce_final.xlsx"), null, true),
+				    Worksheet_Sheet = Fonte{[Item="Worksheet",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Worksheet_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_client", Int64.Type}, {"Category", type text}, {"Price", type number}, {"Card Type", type text}, {"state_name", type text}, {"First_name", type text}, {"Gender", type text}, {"Job_Title", type text}, {"Id_client", Int64.Type}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"Id_client", "Id_client.1"}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Colunas Renomeadas",{"Id_client.1"})
+				in
+				    #"Colunas Removidas"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

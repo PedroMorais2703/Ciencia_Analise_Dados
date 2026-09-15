@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "dfe8b9e784792fb4f97c",
+  "position": {
+    "x": 456.86746987951807,
+    "y": 21.686746987951807,
+    "z": 4000,
+    "height": 114.21686746987952,
+    "width": 183.6144578313253,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Worksheet"
+                    }
+                  },
+                  "Property": "Ticket_Medio"
+                }
+              },
+              "queryRef": "Worksheet.Ticket_Medio",
+              "nativeQueryRef": "Ticket_Medio"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Worksheet"
+                  }
+                },
+                "Property": "Ticket_Medio"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    }
+  }
+}

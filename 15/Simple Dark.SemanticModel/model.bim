@@ -1,0 +1,227 @@
+{
+  "compatibilityLevel": 1600,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Worksheet\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Worksheet",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "Name"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id_client",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "54bc5eec-e48e-4742-aa8f-3838f3a7d71a",
+            "sourceColumn": "id_client",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "607d9eab-a5fe-4b13-8ee6-9247f9075cfa",
+            "sourceColumn": "Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "da76715a-c080-43f7-a481-ffa3c9d983ec",
+            "sourceColumn": "Price",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Card Type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "efcf72ce-67fa-4473-a599-70220d896b52",
+            "sourceColumn": "Card Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "state_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1d54d63c-50c0-4ef9-af03-7cb2c7dc9f9c",
+            "sourceColumn": "state_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "First_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8ab2ed02-0bad-4e1f-87c3-e62a00eab056",
+            "sourceColumn": "First_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Gender",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e717732f-3d69-4455-afcd-da97fc737d2a",
+            "sourceColumn": "Gender",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Job_Title",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "36317a99-cfff-408f-89f3-1a2a63b6e4ab",
+            "sourceColumn": "Job_Title",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ff986566-3e14-42c3-bd87-77a240a81f88",
+        "measures": [
+          {
+            "name": "Total_Clientes",
+            "expression": "DISTINCTCOUNT(Worksheet[id_client])",
+            "formatString": "0",
+            "lineageTag": "da23e45d-992d-4f43-aa2a-bb13c251a54f"
+          },
+          {
+            "name": "Total_Transacoes",
+            "expression": "COUNT('Worksheet'[id_client])",
+            "formatString": "0",
+            "lineageTag": "97b4618e-a631-47b9-80aa-404ffcef0cfa"
+          },
+          {
+            "name": "Total_Vendas",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "SUM('Worksheet'[Price])",
+            "lineageTag": "cfa8d846-b270-4eaf-b42f-42a23caa8147"
+          },
+          {
+            "name": "Ticket_Medio",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "DIVIDE([Total_Vendas], [Total_Transacoes])",
+            "lineageTag": "d427a1e4-5cff-47bd-a14c-2ee0fe484c34"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Worksheet",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Excel.Workbook(File.Contents(\"G:\\python\\Ciencia_Analise_Dados\\15\\dados_ecommerce_final.xlsx\"), null, true),",
+                "    Worksheet_Sheet = Fonte{[Item=\"Worksheet\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Cabeçalhos Promovidos\" = Table.PromoteHeaders(Worksheet_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"id_client\", Int64.Type}, {\"Category\", type text}, {\"Price\", type number}, {\"Card Type\", type text}, {\"state_name\", type text}, {\"First_name\", type text}, {\"Gender\", type text}, {\"Job_Title\", type text}, {\"Id_client\", Int64.Type}}),",
+                "    #\"Colunas Renomeadas\" = Table.RenameColumns(#\"Tipo Alterado\",{{\"Id_client\", \"Id_client.1\"}}),",
+                "    #\"Colunas Removidas\" = Table.RemoveColumns(#\"Colunas Renomeadas\",{\"Id_client.1\"})",
+                "in",
+                "    #\"Colunas Removidas\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
